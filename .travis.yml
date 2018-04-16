@@ -1,0 +1,12 @@
+before_install:
+- sudo apt-get install -y latexmk
+script:
+- latexmk -pdf
+- mkdir -p dist
+- mv main.pdf dist/main.pdf
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $github_token
+  local-dir: dist
+  keep-history: true
