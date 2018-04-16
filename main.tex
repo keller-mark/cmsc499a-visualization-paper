@@ -1,4 +1,5 @@
 \documentclass[12pt, letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[super,comma]{natbib}
 
@@ -25,7 +26,7 @@ This semester, I have focused on building a visualization tool to do just this, 
 
 The resulting tool, X (http://link.to/it), is a web-based mutation data browser that enables exploration of mutation signatures, cancer types, mutation types, and kataegis events.
 X allows users to choose sequencing project data sets by cancer type, as well as mutation signature combinations (of which can be selected based on cancer-type-specific presets) before plotting this data. 
-Using the data-driven documents JavaScript library (D3.js), plots can be customized down to the pixel.
+Using the data-driven documents JavaScript library (D3.js)\cite{bostock2011d3}, plots can be customized down to the pixel.
 Showing donor clinical variables, such as smoking and alcohol usage, and their relationship to mutation signatures, requires this fine control that D3 provides.
 In addition, D3 contains APIs for easy implementation of custom interactive features, such as highlighting based on mouse position and zooming based on mouse dragging (``brushing"). 
 
