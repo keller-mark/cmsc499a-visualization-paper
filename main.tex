@@ -1,5 +1,6 @@
 \documentclass[12pt, letterpaper]{article}
 \usepackage[utf8]{inputenc}
+\usepackage[super,comma]{natbib}
 
 \title{CMSC499A: Mutation Visualization}
 \author{Mark Keller \thanks{mentored by Professor Max Leiserson}}
@@ -12,7 +13,7 @@
 Identification and analysis of patterns in data can be difficult without visualization tools. 
 Datasets of somatic mutations in cancer are no exception. 
 Recent whole-genome sequencing projects such as PanCancer Analysis of Whole Genomes (PCAWG) have produced large amounts of data to be explored.
-Of great importance is the classification of different mutational processes and the mutational signatures they leave behind.
+Of great importance is the classification of different mutational processes and the mutational signatures\cite{alexandrov2013signatures} they leave behind.
 As new mutational signatures continue to be discovered, observation of the levels of signature activity, called signature exposure, helps show how the underlying mutational processes differ across cancer types, time, and environmental variables.
 \end{abstract}
 
@@ -26,6 +27,13 @@ The resulting tool, X (http://link.to/it), is a web-based mutation data browser 
 X allows users to choose sequencing project data sets by cancer type, as well as mutation signature combinations (of which can be selected based on cancer-type-specific presets) before plotting this data. 
 Using the data-driven documents JavaScript library (D3.js), plots can be customized down to the pixel.
 Showing donor clinical variables, such as smoking and alcohol usage, and their relationship to mutation signatures, requires this fine control that D3 provides.
-In addition, D3 contains APIs for easy implementation of custom interactive features, such as highlighting based on mouse position and zooming based on mouse dragging ("brushing"). 
+In addition, D3 contains APIs for easy implementation of custom interactive features, such as highlighting based on mouse position and zooming based on mouse dragging (``brushing"). 
+
+\section{Case Study}
+
+\section{Methods}
+
+\bibliography{main}{}
+\bibliographystyle{plain}
 
 \end{document}

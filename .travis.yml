@@ -1,7 +1,7 @@
 before_install:
 - sudo apt-get install -y latexmk
 script:
-- latexmk -pdf
+- latexmk -pdf -bibtex
 - mkdir -p dist
 - mv main.pdf dist/main.pdf
 deploy:
