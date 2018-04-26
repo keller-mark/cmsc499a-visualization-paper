@@ -1,7 +1,7 @@
 before_install:
 - sudo apt-get install -y latexmk inkscape
 script:
-- cd figures && ./convert.sh && cd -
+- cd figures && bash ./convert.sh && cd -
 - latexmk -pdf -bibtex
 - mkdir -p dist
 - mv main.pdf dist/main.pdf
