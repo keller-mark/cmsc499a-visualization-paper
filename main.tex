@@ -67,6 +67,12 @@ A potential use case for this tool is the analysis of relationships between sign
 Interactive sorting and dynamic calculations of signature exposures allow trends to be observed quickly.
 Connections generally assumed to exist can be verified and examined, such as specific signatures being associated with tobacco usage.
 
+\subsection{Tobacco Usage and Mutational Signatures}
+Alexandrov \textit{et al}. 2016 finds that smokers exhibit increases in mutations attributed to COSMIC signatures 2, 4, 5, 13, and 16 \cite{alexandrov2016mutational}. 
+Signature 4 in particular ...
+
+\subsection{Tobacco Usage and Hypermutation}
+
 % TODO: Mention sharing with URL
 
 
@@ -92,11 +98,16 @@ The Pandas and NumPy packages are used for data manipulation in both of these pr
 
 Signature exposures are estimated using a quadratic programming approach detailed by Huang \textit{et al}. 2017\cite{huang2017detecting}.
 Signatures present in each cancer type, or signature combination ``presets", are based on those specified in publications of mutational signatures.
-For example, the COSMIC signature presences can be found in Figure 3 of Alexandrov \textit{et al}. 2013 \cite{alexandrov2013signatures}.
+For example, the COSMIC signature presences can be found in Figure 3 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
+
+While this software can be run locally, accessing a hosted version may be easier for some users.
+Currently, an instance of the Flask-powered web server is deployed to Heroku.
+An instance of the front end (Vue/D3) component is deployed through GitHub pages, and uses Travis CI for continuous integration and deployment.
+This makes access and usage as simple as connecting via a web browser.
 
 \section{Future Directions}
 % TODO
-Local datasets can be visualized, allowing functionality to extend beyond the public datasets we have processed.
+%Local datasets can be visualized, allowing functionality to extend beyond the public datasets we have processed.
 
 
 \bibliography{main}{}

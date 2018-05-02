@@ -7,4 +7,5 @@
 *.pdf
 *.bbl
 *.blg
+*.synctex.gz
 references
