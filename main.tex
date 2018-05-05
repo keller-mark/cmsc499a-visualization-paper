@@ -32,7 +32,9 @@ Data exploration through these visualizations can be used to make initial infere
 Each type of visualization produced by the Mutation Signature Explorer aims to enable further examination of a trend or relationship which has been hypothesized or presented in existing literature.
 The following are types of visualizations that can be generated and their motivations:
 \begin{enumerate}
-\item To illustrate estimated contributions of a selected combination of mutational signatures, a stacked bar plot can be generated, showing estimated signature exposures for a sample, along with tobacco and alcohol usage indicators.
+\item It is well known that tobacco and alcohol usage increases risk of many types of cancers \cite{doll1956lung,collaborative2002alcohol}. A question of interest is how mutational signatures relate to smoking status and other clinical variables. Alexandrov \textit{et al}. 2016 finds that smokers exhibit increases in mutations attributed to COSMIC signatures 2, 4, 5, 13, and 16 \cite{alexandrov2016mutational}. Kim \textit{et al}. 2016 also notes an association between signature 5 and smoking \cite{kim2016somatic}.
+
+To illustrate estimated contributions of a selected combination of mutational signatures, a stacked bar plot can be generated, showing estimated signature exposures for a sample, along with tobacco and alcohol usage indicators.
 Exposure values can be normalized to sum to one for each sample, or kept relative to the total number of mutations in each sample.
 This plot type was inspired by Figure 4 in Kim \textit{et al.} 2016 that displays estimated contributions of 4 different signatures and tobacco usage over cohorts of urothelial cancer tumor samples \cite{kim2016somatic}.
     
@@ -51,7 +53,7 @@ Samples are grouped by sequencing project and cancer type.
 This plot acts as a rainfall plot selector, as each sample bar can be clicked to generate a corresponding rainfall plot.
 To our knowledge, this style of plot has not been used before to visualize kataegis .
     
-\item A question that initially spurred the development of this visualization tool is whether certain mutational signatures are associated with mutations in specific genomic locations or regions.
+\item A question that prompted the development of this visualization tool is whether certain mutational signatures are associated with mutations in specific genomic locations or regions.
 One way to examine this is to look at mutation signature activity across the genome with a ``Manhattan plot".
 The Manhattan plot gets its name from the resemblance of a skyline along the genome, and is typically used to visualize genome-wide association studies\cite{gibson2010hints}.
 To generate this plot, signatures are assigned to individual mutations and then grouped into bins by chromosome location and signature.
@@ -106,7 +108,7 @@ The Pandas and NumPy packages are used for data manipulation in both of these pr
 
 Signature exposures are estimated using a quadratic programming approach detailed by Huang \textit{et al}. 2017\cite{huang2017detecting}.
 Signatures present in each cancer type, or signature combination ``presets", are based on those specified in publications of mutational signatures.
-For example, the COSMIC signature presences can be found in Figure 3 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
+For example, the presences of COSMIC signatures can be found in Figure 3 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
 
 While this software can be run locally, accessing a hosted version may be easier for some users.
 Currently, an instance of the Flask-powered web server is deployed to Heroku.
@@ -119,15 +121,16 @@ Specifically, visualization of mutational signatures themselves - as distributio
 This would give users that are unfamiliar with mutational signatures a better sense of how the signatures are used in the other plot types.
 These could look like interactive versions of the plots presented in Figure 2 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
 
-Visualization of mutation rates, in the form of interactive mutational prevalence plots, could be used to show relationships between mutation rates and variables such as cancer type, clinical data, mutational signatures, and kataegis rates.
+Visualization of mutation rates, in the form of interactive mutational prevalence plots, should be used to show relationships between mutation rates and variables such as cancer type, clinical data, mutational signatures, and kataegis rates.
 A mutation prevalence plot by cancer type is presented in Figure 1 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
 
-Another Manhattan plot could be implemented, showing mutation rates along the genome by mutation category.
-A plot showing the location of genes could be linked to existing plots that present data along the genome.
+Another Manhattan plot should be implemented, showing mutation rates along the genome by mutation category.
+
+A plot showing the location of genes should be linked to existing plots that present data along the genome.
 This type of plot showing gene locations can be found in Figure 1 of Chelaru \textit{et al}. 2014\cite{chelaru2014epiviz}.
 
 Existing plots should be modified to allow analysis of mutation types other than SNVs. 
-For example, since kataegis has been hypothesized to be associated with rearrangements, the rainfall and kataegis plots should be modified to show structural somatic mutations.
+For example, since kataegis has been hypothesized to be associated with rearrangements, the rainfall and kataegis plots should be modified to show structural somatic mutations. The kataegis plot should also be modified to show survival status, which has also been hypothesized to be associated with kataegis.
 
 Mutation datasets from additional sources should be processed to allow for stronger conclusions to be made using this tool.
 When additional mutational signatures are discovered, they should be added to the database to ensure that users have access to the most relevant and accurate visualizations possible.
