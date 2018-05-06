@@ -63,27 +63,38 @@ To our knowledge, this is a new method for exploring mutational signatures along
 
 \end{enumerate}
 
-\begin{figure}
-    \caption{Screenshot}
-    \centering
-    \frame{\includegraphics[width=0.75\columnwidth]{figures/screenshot1.png}}
-\end{figure}
-
 
 \section{Case Study}
 
-\subsection{Tobacco Usage and Mutational Signatures}
+\subsection{Alcohol Usage and Mutational Signatures}
 One use case for this tool is the analysis of relationships between signature exposures and clinical variables.
 Interactive sorting and dynamic calculations of signature exposures allow trends to be observed quickly.
-Connections generally assumed to exist can be verified and examined, such as specific signatures being associated with tobacco usage.
+Although the relationship between liver cancer and alcohol consumption has long been documented \cite{bosch2004primary}, the relationship between mutational signatures and alcohol consumption has not been extensively examined.
+Recently, Li \textit{et al}. 2018 identified a mutational signature based on esophageal squamous cell carcinoma that resembles COSMIC signatures 1, 2, 13 and 16, and is associated with alcohol usage\cite{li2018mutational}.
+To look for a relationship in liver cancer within the Mutation Signature Explorer, the PCAWG Liver Cancer - NCC, JP cohort was selected, along with the COSMIC LICA signatures preset for liver cancer. 
+Then, the Signature Exposures with Clinical Data plot was selected to examine the alcohol usage clinical variable.
+Using the sorting functionality, we first sort by clinical variable $\rightarrow$ alcohol usage.
+With no trends immediately apparent, we can now sort by signature values.
+Sorting by COSMIC signature 12 and normalizing the signature exposures, we can see that only two alcohol-free donors are the first 14 of 28 donors (Figure \ref{fig:caseStudy1_sig12}).
+\begin{figure}[h]
+    \centering
+    \frame{\includegraphics[width=0.75\columnwidth]{figures/case_study1.png}}
+    \caption{Screenshot of Signature Exposures with Clinical Data plot with PCAWG-LINC-JP data, normalized and sorted by COSMIC signature 12}
+    \label{fig:caseStudy1_sig12}
+\end{figure}
+Hovering over the samples and looking at the y-axis, we can see that the contribution of signature 12 ranges from over 10\% to just under 50\% for all samples.
+Using this information, one could perform further statistical analysis on this data or seek out additional liver cancer mutation data to analyze.
 
-Alexandrov \textit{et al}. 2016 finds that smokers exhibit increases in mutations attributed to COSMIC signatures 2, 4, 5, 13, and 16 \cite{alexandrov2016mutational}. 
-Signature 4 in particular ...
+Interestingly, when sorting by COSMIC signatures 1 and 16, signatures both present in liver cancer and similar to that of Li \textit{et al}. 2018, a similar trend in alcohol usage arose (only two alcohol-free donors in the top half of donors).
+However, as one can tell by looking at the legend, the contributions from these signatures are too low to be visible for any sample in the plot.
+
 
 \subsection{Hypermutation and Mutation Category}
 Another use case is the analysis of the relationship between hypermutation and mutation category.
 For SNVs, the mutation category is the left flanking base pair, the mutation reference base pair, the variant base pair, and the right flanking base pair.
 These categories are assigned colors on rainfall plots to allow this type of relationship (or lack thereof) to be quickly spotted.
+
+Connections generally assumed to exist can be verified and examined....
 
 When looking at the kataegis plot on chromosome 1 for the PCAWG-PRAD-UK (Prostate Adenocarcinoma) cohort...
 
@@ -114,6 +125,12 @@ While this software can be run locally, accessing a hosted version may be easier
 Currently, an instance of the Flask-powered web server is deployed to Heroku.
 An instance of the front end (Vue/D3) component is deployed through GitHub pages, and uses Travis CI for continuous integration and deployment.
 This makes access and usage as simple as connecting via a web browser.
+
+\begin{figure}
+    \caption{Screenshot}
+    \centering
+    \frame{\includegraphics[width=0.75\columnwidth]{figures/screenshot1.png}}
+\end{figure}
 
 \section{Future Directions}
 Future development of the Mutation Signature Explorer should include the expansion of functionality through implementation of more plot types.
