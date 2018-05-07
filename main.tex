@@ -45,15 +45,14 @@ Methods to consider other types of mutations (indels and rearrangements) are onl
 
 
 % Existing visualizations/browsers
-
-% TODO: what's been done already for visualization/browsers.
-% start with general-purpose cancer browsers (e.g. cBioPortal)
-% then note that there are no interactive mutation signature explorers
-% moving into how folks have been creating visualizations to understand mutation signatures.
-
-% citing the papers that inspired you/us when creating this tool 
-% establishing that there is a need for this specific tool. 
-% can probably condense the enumerated list of plots
+Many interactive cancer visualization tools and browsers exist, but few consider or provide support for mutational signatures. 
+For example, the cBio Cancer Genomics Portal provides interactive visualizations of mutation data with a focus on copy number alterations, mRNA expression changes, DNA methylation values, and protein and phosphoprotein levels \cite{cerami2012cbio,gao2013integrative}.
+The cBio Portal also contains features for computing mutual exclusivity and co-occurrence between pairs of genes \cite{cerami2012cbio,gao2013integrative}.
+The UCSC Xena Browser supports gene, exon, miRNA and protein expression, copy number, DNA methylation and somatic mutation data along with phenotypes, subtype classifications and genomic biomarkers \cite{goldman2014ucsc,goldman2016ucsc}.
+FireBrowse is a cancer data browser that does include plots of mutation signature exposure that can be compared to clinical data, but only includes 5 signatures for analysis.
+It is unclear what these 5 signatures represent or if any of these are related to any of the COSMIC signatures.
+A browser that can easily visualize mutation datasets and contributions of the over thirty currently known mutational signatures is needed, as it could allow trends and relationships with clinical data to be spotted easily.
+This could further understanding of the underlying mutational processes that cause certain signatures to be expressed.
 
 % Introduction to Mutation Signature Explorer
 Mutation Signature Explorer is a web-based (\url{https://mutation-signature-explorer.lrgr.io}) mutation data browser that enables exploration of mutational signatures, SNV mutations, and mutation density.
