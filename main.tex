@@ -4,6 +4,7 @@
 \usepackage[super,comma]{natbib}
 \usepackage{graphicx}
 \usepackage{xcolor}
+\usepackage{wrapfig}
 
 \usepackage{hyperref}
 
@@ -156,8 +157,15 @@ However, the contributions from these two signatures are too low to be visible f
 
 
 \subsection{Hypermutation and Mutation Category}
+\begin{wrapfigure}{r}{0.35\textwidth}
+    \centering
+    \frame{\includegraphics[width=0.33\textwidth]{figures/case_study2.png}}
+    \caption{Screenshot of Rainfall Plots with PCAWG-BRCA-UK data for Chromosome 1}
+    \label{fig:caseStudy2}
+\end{wrapfigure}
 Another use case is the analysis of the relationship between hypermutation and mutation category.
 For SNVs, the mutation category is the 5' flanking base pair, the mutation reference base pair, the variant base pair, and the 3' flanking base pair.
+
 Mutations are assigned colors based on mutation categories on the rainfall plots to allow this type of relationship (or lack thereof) to be quickly spotted.
 The prevalence of mutations with reference base C and 5' T in regions of kataegis is well documented \cite{taylor2013dna}.
 
@@ -167,22 +175,19 @@ By hovering over mutations in kataegis regions on these plots and looking at the
 Figure \ref{fig:caseStudy2} shows these rainfall plots and the mutation category legend.
 These plots could be used to discover further trends occurring in regions of hypermutation, such as significant rates of mutations that fall into categories with patterns other than T[C\textgreater T]X and C[C\textgreater T]X in specific cancer types.
 Such discoveries can be communicated to others easily, as Mutation Signature Explorer URLs include information about current plot states.
-\begin{figure}[h]
-    \centering
-    \frame{\includegraphics[width=0.5\columnwidth]{figures/case_study2.png}}
-    \caption{Screenshot of Rainfall Plots with PCAWG-BRCA-UK data for Chromosome 1}
-    \label{fig:caseStudy2}
-\end{figure}
+
 
 \section{Conclusions}
 % Brief summary
-
-% TODO: add a brief (1-2 sentence) description of the contributions presented above.
-
-% TODO: I think a really interesting future direction would be to build out "zooming in" on a particular patient. The kataegis summary --> rainfall plot already does this. Are there ways we can adapt/extend existing plots (or add new plots) to really focus on understanding the processes in a single tumor?
+In this paper, the motivations, features, design, and use cases of the Mutation Signature Explorer, a web-based interactive visualization of mutational signature contributions, are presented. 
+The ability to dynamically compute and visualize selected combinations of signatures, clinical variables, and cancer types makes this a powerful tool for data exploration.
 
 % Future directions
-Future development of the Mutation Signature Explorer should include the expansion of functionality through implementation of more plot types.
+Future development of the Mutation Signature Explorer should focus on the addition of features that enable better analysis of single tumors. 
+This could be implemented by allowing a user to trigger the creation of donor-specific visualizations in the same way that the rainfall plots are currently generated.
+These features would help the processes acting in a single tumor to be better understood.
+
+Functionality can also be expanded through implementation of more plot types.
 Specifically, visualization of mutational signatures themselves - as distributions over mutation categories - would be a simple but informative feature to add.
 This would give users that are unfamiliar with mutational signatures a better sense of how the signatures are used in the other plot types.
 These could look like interactive versions of the plots presented in Figure 2 of Alexandrov \textit{et al}. 2013\cite{alexandrov2013signatures}.
