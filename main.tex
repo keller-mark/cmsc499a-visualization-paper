@@ -51,7 +51,7 @@ For example, the cBio Cancer Genomics Portal provides interactive visualizations
 The cBio Portal also contains features for computing mutual exclusivity and co-occurrence between pairs of genes \cite{cerami2012cbio,gao2013integrative}.
 The UCSC Xena Browser supports gene, exon, miRNA and protein expression, copy number, DNA methylation and somatic mutation data along with phenotypes, subtype classifications and genomic biomarkers \cite{goldman2014ucsc,goldman2016ucsc}.
 FireBrowse is a cancer data browser that does include plots of mutation signature exposure that can be compared to clinical data, but only includes 5 signatures for analysis.
-It is unclear what these 5 signatures represent or if any of these are related to any of the COSMIC signatures.
+It is unclear what these 5 signatures represent or if any of these are related to any of the widely-used signatures published by Catalogue Of Somatic Mutations In Cancer (COSMIC).
 A browser that can easily visualize mutation datasets and contributions of the over thirty currently known mutational signatures is needed, as it could allow trends and relationships with clinical data to be spotted easily.
 This could further understanding of the underlying mutational processes that cause certain signatures to be expressed.
 
@@ -154,15 +154,13 @@ Using this information, one could perform further statistical analysis on this d
 
 Interestingly, when sorting by COSMIC signatures 1 and 16 - signatures both present in liver cancer and that resemble the Li \textit{et al}. 2018 signature, a similar trend in alcohol usage arises (only two alcohol-free donors in the top half of donors).
 However, the contributions from these two signatures are too low to be visible for any sample in the plot.
-
-
-\subsection{Hypermutation and Mutation Category}
 \begin{wrapfigure}{r}{0.35\textwidth}
     \centering
     \frame{\includegraphics[width=0.33\textwidth]{figures/case_study2.png}}
     \caption{Screenshot of Rainfall Plots with PCAWG-BRCA-UK data for Chromosome 1}
     \label{fig:caseStudy2}
 \end{wrapfigure}
+\subsection{Hypermutation and Mutation Category}
 Another use case is the analysis of the relationship between hypermutation and mutation category.
 For SNVs, the mutation category is the 5' flanking base pair, the mutation reference base pair, the variant base pair, and the 3' flanking base pair.
 
@@ -185,7 +183,7 @@ The ability to dynamically compute and visualize selected combinations of signat
 % Future directions
 Future development of the Mutation Signature Explorer should focus on the addition of features that enable better analysis of single tumors. 
 This could be implemented by allowing a user to trigger the creation of donor-specific visualizations in the same way that the rainfall plots are currently generated.
-These features would help the processes acting in a single tumor to be better understood.
+These features would help to better understand the processes acting in a single tumor.
 
 Functionality can also be expanded through implementation of more plot types.
 Specifically, visualization of mutational signatures themselves - as distributions over mutation categories - would be a simple but informative feature to add.
@@ -211,13 +209,13 @@ Local dataset visualization should be further enabled, to extend functionality b
 \bibliography{main}{}
 \bibliographystyle{plain}
 
-\pagebreak
-
 \begin{figure}
     \centering
     \frame{\includegraphics[width=0.75\columnwidth]{figures/screenshot1.png}}
-    \caption{Screenshot}
+    \caption{Screenshot displaying all plot types}
 \end{figure}
+
+\pagebreak
 
 \appendix                                     
 \section{Examples of Publication-Ready Figures}
