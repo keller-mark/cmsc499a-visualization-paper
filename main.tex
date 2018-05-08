@@ -33,6 +33,7 @@ These patterns have been extracted from mutation datasets using computational an
 The concept of mutational signatures has been validated by in vitro experiments that perform knockouts of DNA repair genes and then observe that mutational signatures result \cite{zou2018validating,nik2015genome}.
 
 % Importance of mutational signatures
+% TODO: rephrase in own words
 Observation of mutational signatures and knowledge of the mutational processes that cause them can improve cancer diagnosis and treatment. 
 Mutational signatures have been used to predict BRCA1/BRCA2 deficiency in breast cancers, allowing therapeutic sensitivity to be distinguished as early as the first biopsy \cite{davies2017hrdetect}.
 In colorectal cancers, mutational signatures have enabled identification of base excision repair (BER) genomic instability that can prompt genetic counselling and immunotherapy measures that take into consideration the high mutation load \cite{pilati2017mutational}.
@@ -42,8 +43,7 @@ There are many open questions about mutational signatures.
 Currently, mutational signatures are represented as probability distributions over 96 categories of single-nucleotide variant (SNV) mutations.
 These 96 categories include the reference base, the variant base, and one flanking base pair in each direction. 
 It is not known how significant these flanking base pairs are, how many to consider, or to what extent these depend on one another \cite{shiraishi2015simple}.
-The mutational processes (or levels of noise) that cause some of the currently published mutational signatures remain unknown.
-% TODO: address/remove levels of noise comment
+The mutational processes that cause some of the currently published mutational signatures remain unknown \cite{alexandrov2013signatures}.
 Methods to consider other types of mutations (indels and rearrangements) are only being formulated now \cite{zou2018validating}.
 
 % Existing visualizations/browsers
@@ -73,7 +73,7 @@ To illustrate estimated contributions of a selected combination of mutational si
 Exposure values can be normalized to sum to one for each sample, or kept relative to the total number of mutations in each sample.
 This plot type was inspired by Figure 4 in Kim \textit{et al.} 2016 that displays estimated contributions of 4 different signatures and tobacco usage over cohorts of urothelial cancer tumor samples \cite{kim2016somatic}.
     
-\item Localized hypermutation, known as kataegis, was first discussed by Taylor \textit{et al}. 2013\cite{taylor2013dna}, in which whole-genome sequencing of breast cancers showed regions with mutation ``rainfalls" - greater than 5 mutations with significantly short intermutational distances. Mutations in regions of kataegis have been shown to occur frequently at C base pairs preceded by a 5-prime T base pair, due to APOBEC activity during double-strand break repair\cite{taylor2013dna}. Since this introduction in 2013, kataegis has been shown to occur in additional tumor types\cite{alexandrov2013signatures}. COSMIC signatures 2 and 13 have been associated with APOBEC activity, and by extension, kataegis\cite{alexandrov2013signatures}. There is recent interest in rigorous statistical identification and verification of kataegis\cite{yousif2018origins}.
+\item Localized hypermutation, known as kataegis, was first discussed by Taylor \textit{et al}. 2013\cite{taylor2013dna}, in which whole-genome sequencing of breast cancers showed regions with mutation ``rainfalls" - greater than 5 mutations with significantly short intermutational distances. Mutations in regions of kataegis have been shown to occur frequently at C base pairs preceded by a 5-prime T base pair, due to APOBEC activity during double-strand break repair\cite{taylor2013dna,alexandrov2013signatures}. Since this introduction in 2013, kataegis has been shown to occur in additional tumor types\cite{alexandrov2013signatures}. COSMIC signatures 2 and 13 have been associated with APOBEC activity, and by extension, kataegis\cite{alexandrov2013signatures}. There is recent interest in rigorous statistical identification and verification of kataegis\cite{yousif2018origins}.
 
 To examine mutation clusters, specifically those occurring in regions of kataegis, a rainfall plot can be generated for each sample.
 Mutations are plotted horizontally based on their genome location, and vertically by the distance (in bp) to the previous mutation.
