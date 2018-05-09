@@ -1,5 +1,5 @@
 before_install:
-- sudo apt-get install -y latexmk texlive-latex-extra inkscape
+- apt-get install -y latexmk texlive-latex-extra inkscape
 script:
 - cd figures && bash ./convert.sh && cd -
 - latexmk -pdf -bibtex
