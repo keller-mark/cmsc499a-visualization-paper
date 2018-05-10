@@ -56,6 +56,12 @@ The UCSC Xena Browser supports gene, exon, miRNA and protein expression, copy nu
 FireBrowse is a cancer data browser that does include plots of mutation signature exposure that can be compared to clinical data, but only includes 5 signatures for analysis.
 It is unclear what these 5 signatures represent or if any of these are related to any of the widely-used signatures published by Catalogue Of Somatic Mutations In Cancer (COSMIC).
 % TODO: sentence about mSignatureDB
+% differences: 
+% - clinical data is not visualized, only listed
+% - plot characteristics (dot matrix plots)
+% - lack of interactivity: sorting, linked plots, zooming/panning
+% - focuses on extracting mutual signatures from new mutation datasets using NMF
+% - calculates exposures without considering signatures present per cancer
 
 % TODO: paragraph about current "static" visualizations (move references to figures in other papers out of plot descriptions to here). specify that these plots are not interactive
 
@@ -134,7 +140,7 @@ Interactivity extends beyond single plots, linking plots together based on varia
 
 % Code and hosted version
 % TODO: links as footnotes since they overflow
-Code for iMuSE is open-source and available through the following repositories: \url{https://github.com/lrgr/mutation-signature-explorer}, \url{https://github.com/lrgr/mutation-signature-explorer-server}.
+Code for iMuSE is open-source and available on GitHub\footnote{\url{https://github.com/lrgr/mutation-signature-explorer}}\textsuperscript{,}\footnote{\url{https://github.com/lrgr/mutation-signature-explorer-server}}.
 While this software can be run locally, accessing a hosted version may be easier for some users.
 Currently, an instance of the Flask-powered web server is deployed to Heroku.
 An instance of the front end (Vue/D3) component is deployed through GitHub pages, and uses Travis CI for continuous integration and deployment.
