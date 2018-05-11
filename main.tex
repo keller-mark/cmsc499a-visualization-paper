@@ -48,25 +48,35 @@ It is not known how significant these flanking base pairs are, how many to consi
 The mutational processes that cause some of the currently published mutational signatures remain unknown \citep{alexandrov2013signatures}.
 Methods to consider other types of mutations (indels and rearrangements) are only being formulated now \citep{zou2018validating}.
 
-% Existing visualizations/browsers
+% Existing visualizations tools and browsers
 Many interactive cancer visualization tools and browsers exist, but few consider or provide support for mutational signatures. 
 For example, the cBio Cancer Genomics Portal provides interactive visualizations of mutation data with a focus on copy number alterations, mRNA expression changes, DNA methylation values, and protein and phosphoprotein levels \citep{cerami2012cbio,gao2013integrative}.
 The cBio Portal also contains features for computing mutual exclusivity and co-occurrence between pairs of genes \citep{cerami2012cbio,gao2013integrative}.
 The UCSC Xena Browser supports gene, exon, miRNA and protein expression, copy number, DNA methylation and somatic mutation data along with phenotypes, subtype classifications and genomic biomarkers \citep{goldman2014ucsc,goldman2016ucsc}.
 FireBrowse is a cancer data browser that does include plots of mutation signature exposure that can be compared to clinical data, but only includes 5 signatures for analysis.
 It is unclear what these 5 signatures represent or if any of these are related to any of the widely-used signatures published by Catalogue Of Somatic Mutations In Cancer (COSMIC).
-% TODO: sentence about mSignatureDB
-% differences: 
-% - clinical data is not visualized, only listed
-% - plot characteristics (dot matrix plots)
-% - lack of interactivity: sorting, linked plots, zooming/panning
-% - focuses on extracting mutual signatures from new mutation datasets using NMF
-% - calculates exposures without considering signatures present per cancer
+mSignatureDB is a web-based mutation signature browser that focuses on presenting exposures to the 30 COSMIC signatures across cancer types and empowering users to infer new signatures by providing a pipeline that runs the non-negative matrix factorization and cosine similarity algorithms that are typically used to extract mutation signatures on uploaded mutation datasets \citep{huang2017msignaturedb}.
 
-% TODO: paragraph about current "static" visualizations (move references to figures in other papers out of plot descriptions to here). specify that these plots are not interactive
+% Existing "static" visualizations in publications
+Publications that discuss mutation signatures have typically included a few standard types of visualizations to  communicate their results.
+\citet{alexandrov2016mutational} finds that smokers exhibit increases in mutations attributed to COSMIC signatures 2, 4, 5, 13, and 16. \citet{kim2016somatic} also notes an association between signature 5 and smoking.
+These types of results can be communicated by bar plots that display estimated contributions of signatures with corresponding heatmaps that display clinical data, as in Figure 4 of \citet{kim2016somatic} that displays signature contributions and tobacco usage over cohorts of urothelial cancer tumor samples.
+
+Rainfall plots are commonly used to examine regions of localized hypermutation as they allow these regions to be easily identified by tight vertical clusters of mutations. 
+Individual mutations are displayed horizontally based on their genome location and vertically by the distance to the previous mutation.
+Rainfall plots appear in Figure 4 of \citet{nik2012mutational} and in Figure 6 of \citet{alexandrov2013signatures}.
+Localized hypermutation, also known as kataegis, was first discussed by \citet{taylor2013dna}, in which whole-genome sequencing of breast cancers showed regions with mutation ``rainfalls" - greater than 5 mutations with significantly short intermutational distances. Mutations in regions of kataegis have been shown to occur frequently at C base pairs preceded by a 5-prime T base pair, due to APOBEC activity during double-strand break repair \citep{taylor2013dna,alexandrov2013signatures}. Since this introduction in 2013, kataegis has been shown to occur in additional tumor types \citep{alexandrov2013signatures}. COSMIC signatures 2 and 13 have been associated with APOBEC activity, and by extension, kataegis \citep{alexandrov2013signatures}. There is recent interest in rigorous statistical identification and verification of kataegis \citep{yousif2018origins}.
+
+To visualize the output of statistical significance tests used in genome-wide association studies, a ``Manhattan plot'' can be employed \citep{gibson2010hints}.
+The Manhattan plot gets its name from the resemblance of a skyline along the genome.
+While this plot type has not traditionally been used in the context of mutation signatures, such a plot can potentially show mutation signature activity across the genome.
+
+Results communicated by these types of plots, when accessed through traditional publication mediums, are limited.
+Static plots are tied to decisions made by the original researcher with regard to data, methods, and plot parameters.
+The interactivity allowed by computer-based visualization tools can enhance the range of observations possible through dynamic choice of such parameters.
 
 \subsection{Contributions}
-A browser that can easily visualize mutation datasets and contributions of the over thirty currently known mutational signatures is needed, as it could allow trends and relationships with clinical data to be spotted easily.
+An interactive browser that can easily visualize mutation datasets and contributions of the over thirty currently known mutational signatures is needed, as it could allow trends and relationships with clinical data to be spotted easily.
 This could further understanding of the underlying mutational processes that cause certain signatures to be expressed.
 
 % Introduction to iMuSE
@@ -77,39 +87,33 @@ Data exploration through these visualizations can be used to make initial infere
 
 % Types of visualizations
 Each type of visualization produced by iMuSE aims to enable further examination of a trend or relationship which has been hypothesized or presented in existing literature.
-The following are types of visualizations that can be generated and their motivations:
+The following are types of visualizations that can be generated:
 \begin{enumerate}
-\item It is well known that tobacco and alcohol usage increases risk of many types of cancers \citep{doll1956lung,collaborative2002alcohol}. A question of interest is how mutational signatures relate to smoking status and other clinical variables. \citet{alexandrov2016mutational} finds that smokers exhibit increases in mutations attributed to COSMIC signatures 2, 4, 5, 13, and 16. \citet{kim2016somatic} also notes an association between signature 5 and smoking.
-
-To illustrate estimated contributions of a selected combination of mutational signatures, a stacked bar plot can be generated, showing estimated signature exposures for a sample, along with tobacco and alcohol usage indicators.
+\item To illustrate estimated contributions of a selected combination of mutational signatures, a stacked bar plot can be generated, showing estimated signature exposures for a sample, along with tobacco and alcohol usage indicators.
 Exposure values can be normalized to sum to one for each sample, or kept relative to the total number of mutations in each sample.
-This plot type was inspired by Figure 4 in \citet{kim2016somatic} that displays estimated contributions of 4 different signatures and tobacco usage over cohorts of urothelial cancer tumor samples.
-    
-\item Localized hypermutation, known as kataegis, was first discussed by \citet{taylor2013dna}, in which whole-genome sequencing of breast cancers showed regions with mutation ``rainfalls" - greater than 5 mutations with significantly short intermutational distances. Mutations in regions of kataegis have been shown to occur frequently at C base pairs preceded by a 5-prime T base pair, due to APOBEC activity during double-strand break repair \citep{taylor2013dna,alexandrov2013signatures}. Since this introduction in 2013, kataegis has been shown to occur in additional tumor types \citep{alexandrov2013signatures}. COSMIC signatures 2 and 13 have been associated with APOBEC activity, and by extension, kataegis \citep{alexandrov2013signatures}. There is recent interest in rigorous statistical identification and verification of kataegis \citep{yousif2018origins}.
+Each donor bar of exposures is linked to corresponding donor data in all other plots to quickly relate exposures to other variables. 
+Sorting of donors can be performed interactively by choosing a specific signature or clinical variable of interest.
 
-To examine mutation clusters, specifically those occurring in regions of kataegis, a rainfall plot can be generated for each sample.
-Mutations are plotted horizontally based on their genome location, and vertically by the distance (in bp) to the previous mutation.
+\item To examine mutation clusters, specifically those occurring in regions of kataegis, a rainfall plot can be generated for each sample.
 Mutations are colored according to one of 96 mutation categories (5' flanking base pair, single-nucleotide variant, 3' flanking base pair).
-Rainfall plots are commonly used to examine regions of hypermutation, as they allow these regions to be easily identified by tight vertical clusters of mutations. 
-Similar rainfall plots can be seen in Figure 4 of \citet{nik2012mutational} and in Figure 6 of \citet{alexandrov2013signatures}.
+Hovering over mutations, tooltips are displayed indicating exact mutation distances and locations.
+Users can choose whether or not regions of kataegis found according to the \citet{alexandrov2013signatures} method are highlighted on the plot.
 
-To identify samples containing instances of localized hypermutation, kataegic events can be highlighted along the genome in a second type of plot.
+To identify samples containing instances of localized hypermutation, kataegic events can be highlighted along the genome in a new type of plot.
 Along the vertical axis are samples, and along the horizontal axis is the genome.
 Users can zoom and pan along each chromosome, and easily pinpoint kataegis events by the dark bars located on mutations in kataegis regions.
 Samples are grouped by sequencing project and cancer type.
 This plot acts as a rainfall plot selector, as each sample bar can be clicked to generate a corresponding rainfall plot.
-To our knowledge, this style of plot has not been used before to visualize kataegis .
-    
+To our knowledge, this style of plot has not been used before to visualize kataegis.
+
 \item A question that prompted the development of this visualization tool is whether certain mutational signatures are associated with mutations in specific genomic locations or regions.
-One way to examine this is to look at mutation signature activity across the genome with a ``Manhattan plot".
-The Manhattan plot gets its name from the resemblance of a skyline along the genome, and is typically used to visualize the output of statistical significance tests used in genome-wide association studies \citep{gibson2010hints}.
+Mutation signature activity across the genome can be examined with a Manhattan plot.
 To generate this plot, signatures are assigned to individual mutations (see Methods section for details) and then grouped into bins by chromosome location and signature.
 The horizontal axis represents the genome location, and the vertical axis represents the number of mutations within a bin.
-To our knowledge, this is a new method for exploring mutational signatures along the genome.
 
 \end{enumerate}
 
-The rest of this paper is organized into the following sections: Methods, Case Studies, and Conclusions. Included in the Methods section are discussions of open-source libraries and frameworks used to create the browser application, the steps taken to process raw mutation and clinical datasets and the sources of these datasets, and the algorithms used to compute signature exposures. The Case Studies section presents two use cases for this tool: exploration of the relationship between alcohol usage and mutational signatures, and verification of the mutation categories typically present in regions of hypermutation. Future directions for development of iMuSE are outlined in the Conclusions section.
+The rest of this paper is organized into the following sections: Methods, Case Studies, and Conclusions. Included in the Methods section are discussions of open-source libraries and frameworks used to create the browser application, the steps taken to process raw mutation and clinical datasets and the sources of these datasets, and the algorithms used to compute signature exposures. The Case Studies section presents three use cases for this tool: exploration of the relationship between alcohol usage and mutational signatures, verification of the mutation categories typically present in regions of hypermutation, and discovery of new regions of hypermutation. Future directions for development of iMuSE are outlined in the Conclusions section.
 
 
 \section{Methods}
@@ -139,7 +143,6 @@ In addition, D3 contains APIs for easy implementation of custom interactive feat
 Interactivity extends beyond single plots, linking plots together based on variables such as chromosome region and donor.
 
 % Code and hosted version
-% TODO: links as footnotes since they overflow
 Code for iMuSE is open-source and available on GitHub\footnote{\url{https://github.com/lrgr/mutation-signature-explorer}}\textsuperscript{,}\footnote{\url{https://github.com/lrgr/mutation-signature-explorer-server}}.
 While this software can be run locally, accessing a hosted version may be easier for some users.
 Currently, an instance of the Flask-powered web server is deployed to Heroku.
@@ -190,14 +193,14 @@ Figure \ref{fig:caseStudy2} shows these rainfall plots and the mutation category
 These plots could be used to discover further trends occurring in regions of hypermutation, such as significant rates of mutations that fall into categories with patterns other than T[C\textgreater T]X and C[C\textgreater T]X in specific cancer types.
 Such discoveries can be communicated to others easily, as iMuSE URLs include information about current plot states.
 
-% TODO: change terms "hypermutation"/"kataegic event", use "signal" or "interesting"
 \subsection{Discovery of Hypermutation Regions}
 As previously mentioned, there have been recent efforts to better detect instances of kataegis \citep{yousif2018origins}.
 \citet{alexandrov2013signatures} describes an early definition of kataegis as a set of 6 or more mutations with an average intermutational distance of less than 1,000 base pairs.
 To understand why a more rigorous statistical definition of kataegis is needed, we can look at regions of hypermutation with iMuSE rainfall plots.
 First, we can generate the kataegis plot for the PCAWG UK Breast Triple Negative/Lobular Cancer cohort and look at chromosome 1.
 Selecting donor with ID DO1017, the rainfall plot shows one kataegis region, highlighted near location 180,000,000. 
-But to the left of this, we see another kataegic event that is not highlighted because it was not detected by this method (Figure \ref{fig:caseStudy3}).
+But to the left of this, we see another interesting event that is not highlighted because it was not detected by this method (Figure \ref{fig:caseStudy3}).
+Further analysis is required to determine whether this event can be attributed to any known signals or processes.
 \begin{figure}[h]
     \centering
     \frame{\includegraphics[width=0.75\columnwidth]{figures/case_study3.png}}
